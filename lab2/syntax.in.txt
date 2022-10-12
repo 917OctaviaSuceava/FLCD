@@ -1,2 +1,23 @@
 Syntax:
 
+program = "begin;" decllist ";" cmpdstmt "end;"
+decllist = declaration ";"| declaration ";" decllist
+declaration = "declare" type IDENTIFIER
+type1 = "boolean" | "char" | "integer" | "real"
+arraydecl = "declare" type IDENTIFIER"["nr"]"
+type = type1 | arraydecl
+cmpdstmt = stmtlist
+stmtlist = stmt | stmt ";" stmtlist
+stmt = simplstmt | structstmt
+simplstmt = assignstmt | iostmt
+assignstmt = IDENTIFIER "=" expression
+expression = expression ["+" "-"]  term | term
+term = term ["*"| "/"] factor | factor
+factor = "("expression")" | IDENTIFIER
+iostmt = "read" "("IDENTIFIER")" | "print" "("IDENTIFIER")"
+structstmt = cmpdstmt | ifstmt | whilestmt | forstmt
+ifstmt = "check" condition "then $" stmt ["else check" stmt "then"] "$"
+whilestmt = "while" condition "do $" stmt "$"
+forstmt = "check every" IDENTIFIER "from" (IDENTIFIER | digit) "to" (IDENTIFIER | digit) ["and" condition] "$" stmt "$" 
+condition = expression RELATION expression
+RELATION = "<" | ">" | "<=" | ">=" | "=="
