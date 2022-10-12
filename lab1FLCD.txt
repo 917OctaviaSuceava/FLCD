@@ -1,0 +1,60 @@
+-----p1: maximum of 3 numbers
+
+begin;
+	declare integer a, b, c, max;
+	init a=10, b=23, c=17;
+	check(a>b and a>c) then
+		max=a;
+	else check(b>a and b>c) then
+		max=b;
+	else check(c>a and c>b) then
+		max=c;
+	print("the maximum is:" + max);
+end;
+
+-----p2: check if a number is prime
+
+begin;
+	declare integer a, i;
+	declare boolean isPrime;
+	init isPrime=true;
+	read(a);
+	check(a<=1) then
+		isPrime=false;
+	else check(a%2==0) then
+		isPrime=false;
+	else
+		$
+		check every(i from 2 to a-1 and isPrime==true)
+			check(a%i==0) then
+				isPrime=false;
+		$
+	print("is the number prime?" + isPrime);
+end;
+
+-----p3: print all numbers in an array that are smaller than x
+begin;
+	declare integer n, i, x;
+	read(n);
+	read(x);
+	declare integer numbers[n+1];
+	read(numbers);
+	check every(i from 0 to n)
+	$
+		check(numbers[i] < x) then
+			print(numbers[i] + ", ");
+	$
+end;
+
+-----p1err: something with lexical errors
+
+begin;
+	declare integer 1x, y, z;
+	check2k(y+z<x) then
+		print(x);
+end;
+
+
+
+
+
