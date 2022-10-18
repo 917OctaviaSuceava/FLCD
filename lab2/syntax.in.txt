@@ -2,6 +2,7 @@ Syntax:
 
 program = "begin;" decllist ";" cmpdstmt "end;"
 decllist = declaration ";"| declaration ";" decllist
+...
 declaration = "declare" type IDENTIFIER
 type1 = "boolean" | "char" | "integer" | "real"
 arraydecl = "declare" type IDENTIFIER"["nr"]"
