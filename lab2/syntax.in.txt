@@ -1,9 +1,9 @@
 Syntax:
 
 program = "begin;" decllist ";" cmpdstmt "end;"
-decllist = declaration ";"| declaration ";" decllist
-...
-declaration = "declare" type IDENTIFIER
+decllist = declaration ";" | declaration ";" decllist
+declaration = "declare" type idlist
+idlist = {IDENTIFIER}+
 type1 = "boolean" | "char" | "integer" | "real"
 arraydecl = "declare" type IDENTIFIER"["nr"]"
 type = type1 | arraydecl
