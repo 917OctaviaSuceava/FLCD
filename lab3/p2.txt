@@ -1,0 +1,17 @@
+begin;
+	declare integer a, i;
+	declare boolean isPrime;
+	init isPrime=true;
+	read(a);
+	check(a<=1) then
+		isPrime=false;
+	else check(a%2==0) then
+		isPrime=false;
+	else
+		$
+		check every(i from 2 to a-1 and isPrime==true)
+			check(a%i==0) then
+				isPrime=false;
+		$
+	print("is the number prime?" + isPrime);
+end;

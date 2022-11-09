@@ -29,4 +29,10 @@ class SymbolTable:
             self.__elements[hash_key].append(key)
         return self.get_position(key)
 
+    def __str__(self) -> str:
+        res = ""
+        for i in range(self.__length):
+            res += str(i) + "   " + str(self.__elements[i]) + "\n"
+        return res
+
 

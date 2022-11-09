@@ -1,0 +1,10 @@
+begin;
+	declare integer a=10, b=23, c=17, max;
+	check(a>b and a>c) then
+		max=a;
+	else check(b>a and b>c) then
+		max=b;
+	else check(c>a and c>b) then
+		max=c;
+	print("the maximum is:" + max);
+end;

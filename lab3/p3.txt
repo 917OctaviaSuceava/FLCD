@@ -1,0 +1,12 @@
+begin;
+	declare integer n, i, x;
+	read(n);
+	read(x);
+	declare integer numbers[n+1];
+	read(numbers);
+	check every(i from 0 to n)
+	$
+		check(numbers[i] < x) then
+			print(numbers[i] + ", ");
+	$
+end;

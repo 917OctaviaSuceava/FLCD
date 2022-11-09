@@ -1,0 +1,5 @@
+begin;
+	declare integer 1x, y, z;
+	check2k(y+z<x) then
+		print(x);
+end;
