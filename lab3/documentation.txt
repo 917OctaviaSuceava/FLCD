@@ -1,0 +1,16 @@
+https://github.com/917OctaviaSuceava/FLCD
+
+DOCUMENTATION LAB 3 (Scanner)
+
+Symbols:
+
+This class's purpose is to get the tokens from tokens.txt and classify them, based on the position on which we find the tokens.
+
+Scanner:
+
+To identify constants and identifiers we will use Regex expressions. Furthermore, we have some methods that will help us separate
+strings and operators from given tokens. The method get_tokens(line) will return an array made of all tokens from a certain line.
+The most important method is read_from_file(file), which reads the program from a given file and classifies all tokens and adds
+the corresponding elements to the Program Internal Form file and the Symbol Table file.
+
+
