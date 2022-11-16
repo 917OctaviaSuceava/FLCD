@@ -26,14 +26,23 @@ class FiniteAutomata:
                     if i != ',' and i != '\n':
                         self.final_states.append(i)
             elif counter > 3 and line != '\n':
-                self.transitions[(line[1], line[3])] = line[6]
+                if (line[1], line[3]) not in self.transitions.keys():
+                    self.transitions[(line[1], line[3])] = [line[6]]
+                else:
+                    self.transitions[(line[1], line[3])].append(line[6])
             counter += 1
+
+    def check_if_DFA(self):
+        for item in self.transitions:
+            if len(self.transitions[item]) > 1:
+                return False
+        return True
 
     def check_sequence(self, sequence):
         current = self.initial_state
         for item in sequence:
             if (current, item) in self.transitions:
-                new = self.transitions[(current, item)]
+                new = self.transitions[(current, item)][0]
                 current = new
             else:
                 return False

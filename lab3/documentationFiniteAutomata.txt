@@ -1,0 +1,16 @@
+FiniteAutomata:
+
+read_FA_from_file(): reads the input FA from a file and classifies all elements that are in it: set of states, alphabet,
+initial state, final states and transitions. Transitions are stored as a dictionary as follows: { (x1,x2): [x3] }
+
+check_if_DFA(): checks if the FA is a DFA, which means if a tuple in dictionary has associated a list of more than one
+element
+
+check_sequence(): checks if a given sequence is accepted by the FA (before this, in the main function it checks
+if the file contains a DFA)
+
+Main:
+
+menu_FA(): here the user can choose out of multiple options, they can see the set of states, the alphabet, the initial
+state, the final state, the transitions, or all of them; they can as well enter a sequence so that the program can check
+if it's a valid one or not.

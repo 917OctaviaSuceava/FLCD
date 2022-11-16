@@ -59,10 +59,13 @@ def menu_FA():
             print(FA.print_everything())
         elif option == 7:
             seq = input("Your sequence is:\n")
-            if FA.check_sequence(seq) is True:
-                print("The sequence is valid!\n")
+            if FA.check_if_DFA() is True:
+                if FA.check_sequence(seq) is True:
+                    print("The sequence is valid!\n")
+                else:
+                    print("The sequence is not valid!\n")
             else:
-                print("The sequence is not valid!\n")
+                print("Not a DFA")
 
 
 if __name__ == '__main__':
