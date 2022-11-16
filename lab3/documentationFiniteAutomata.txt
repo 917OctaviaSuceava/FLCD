@@ -1,3 +1,5 @@
+https://github.com/917OctaviaSuceava/FLCD/tree/main/lab3
+
 FiniteAutomata:
 
 read_FA_from_file(): reads the input FA from a file and classifies all elements that are in it: set of states, alphabet,
