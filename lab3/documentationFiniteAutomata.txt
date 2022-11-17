@@ -16,3 +16,16 @@ Main:
 menu_FA(): here the user can choose out of multiple options, they can see the set of states, the alphabet, the initial
 state, the final state, the transitions, or all of them; they can as well enter a sequence so that the program can check
 if it's a valid one or not.
+
+
+BNF:
+character = letter | digit
+letter = "A" | "B" | . ..| "Z" | "a" | "b" | ... | "z"
+non_zero_digit = "1" | "2" | ... | "9"
+digit = "0" | "1" |...| "9"
+first_line = character | { "," character }
+second_line = character | { "," character }
+third_line = {character}+
+fourth_line =  character | { "," character }
+transition_tuple = "(" { character } "," { character } ")" "=" { character }
+file = first_line "\n" second_line "\n" third_line "\n" fourth_line "\n" { transition_tuple "\n"}
