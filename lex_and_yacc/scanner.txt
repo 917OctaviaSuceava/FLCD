@@ -23,12 +23,17 @@ INVALIDCHAR '{CHARACTER}|{CHARACTER}'|'{CHARACTER}\"|\"{CHARACTER}'
 "declare"	{printf("Reserved word: %s\n", yytext);return declare;}
 "integer"	{printf("Reserved word: %s\n", yytext); return integer;}
 "real"		{printf("Reserved word: %s\n", yytext); return real;}
+"boolean"	{printf("Reserved word: %s\n", yytext); return boolean;}
 "string"	{printf("Reserved word: %s\n", yytext);return string;}
 "char"		{printf("Reserved word: %s\n", yytext);return char;}
 "while"		{printf("Reserved word: %s\n", yytext);return while;}
+"do"		{printf("Reserved word: %s\n", yytext);return do;}
+"from"		{printf("Reserved word: %s\n", yytext);return from;}
 "else"		{printf("Reserved word: %s\n", yytext);return else;}
 "then"		{printf("Reserved word: %s\n", yytext);return then;}
 "read"		{printf("Reserved word: %s\n", yytext);return read;}
+"and"		{printf("Reserved word: %s\n", yytext);return and;}
+"or"		{printf("Reserved word: %s\n", yytext);return or;}
 "print"		{printf("Reserved word: %s\n", yytext);return print;}
 "check"		{printf("Reserved word: %s\n", yytext);return check;}
 

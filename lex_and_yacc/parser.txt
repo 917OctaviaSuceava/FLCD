@@ -9,6 +9,11 @@
 %token char
 %token while
 %token check
+%token every
+%token do
+%token and
+%token or
+%token from
 %token else
 %token read
 %token print
@@ -38,3 +43,46 @@
 %token NR_CONSTANT
 %token CHAR_CONSTANT
 %token STRING_CONSTANT
+
+%%
+
+
+program = inceput semicolon decllist semicolon cmpdstmt end semicolon
+decllist = declaration semicolon | declaration semicolon decllist
+declaration = declare type idlist
+idlist = {IDENTIFIER}+
+type1 = boolean | char | integer | real
+arraydecl = "declare" type IDENTIFIER"["nr"]"
+type = type1 | arraydecl
+cmpdstmt = stmtlist
+stmtlist = stmt | stmt semicolon stmtlist
+stmt = simplstmt | structstmt
+simplstmt = assignstmt | iostmt
+assignstmt = IDENTIFIER assign expression
+expression = term | term plus expression | term minus expression
+term = factor | factor multiply term | factor divide term | factor mod term
+factor = left_round_bracket expression right_round_bracket | IDENTIFIER
+iostmt = read left_round_bracket IDENTIFIER right_round_bracket | print left_round_bracket IDENTIFIER right_round_bracket 
+structstmt = cmpdstmt | ifstmt | whilestmt | forstmt
+ifstmt = check condition then separator stmt [else check stmt then] separator
+whilestmt = while condition do separator stmt separator
+forstmt = check every IDENTIFIER from (IDENTIFIER | digit) to (IDENTIFIER | digit) [and condition] separator stmt separator
+condition = expression RELATION expression
+RELATION = less | greater | less_or_equal | greater_or_equal | equal
+
+
+%%
+
+yyerror(char *s)
+{
+  printf("%s\n", s);
+}
+
+extern FILE *yyin;
+
+main(int argc, char **argv)
+{
+  if(argc>1) yyin = fopen(argv[1], "r");
+  if((argc>2)&&(!strcmp(argv[2],"-d"))) yydebug = 1;
+  if(!yyparse()) fprintf(stderr,"\tThe program is correct.\n");
+}
