@@ -1,0 +1,59 @@
+%{
+#include<math.h>
+%}
+DIGIT [0-9]
+NON_ZERO_DIGIT [1-9]
+ID [a-zA-Z][a-zA-Z0-9]*
+LETTER [a-zA-Z]
+NR {NONZERODIGIT}{DIGIT}*
+NR_CONSTANT [-]?{NR} | [0]
+CHARACTER {LETTER} | {DIGIT}
+CHAR_CONSTANT '{CHARACTER}'
+BOOL_CONSTANT true | false
+STRING_CONSTANT \"({LETTER}|{DIGIT})*\"
+INVALIDINDETIFIER [0-9][a-zA-Z][a-zA-Z0-9]*
+INVALIDSTRING ({LETTER}|{DIGIT})*\"|\"({LETTER}|{DIGIT})*|'({LETTER}|{DIGIT})*\"|\"({LETTER}|{DIGIT})*'
+INVALIDCHAR '{CHARACTER}|{CHARACTER}'|'{CHARACTER}\"|\"{CHARACTER}'
+
+%%
+
+"begin"		{printf("Reserved word: %s\n", yytext);return begin;}
+"end"		{printf("Reserved word: %s\n", yytext);return end;}
+
+"declare"	{printf("Reserved word: %s\n", yytext);return declare;}
+"integer"	{printf("Reserved word: %s\n", yytext); return integer;}
+"real"		{printf("Reserved word: %s\n", yytext); return real;}
+"string"	{printf("Reserved word: %s\n", yytext);return string;}
+"char"		{printf("Reserved word: %s\n", yytext);return char;}
+"while"		{printf("Reserved word: %s\n", yytext);return while;}
+"else"		{printf("Reserved word: %s\n", yytext);return else;}
+"then"		{printf("Reserved word: %s\n", yytext);return then;}
+"read"		{printf("Reserved word: %s\n", yytext);return read;}
+"print"		{printf("Reserved word: %s\n", yytext);return print;}
+"check"		{printf("Reserved word: %s\n", yytext);return check;}
+
+"+" {printf("Operator: %s\n", yytext); return plus;}
+"-" {printf("Operator: %s\n", yytext); return minus;}
+"*" {printf("Operator: %s\n", yytext); return multiply;}
+"/" {printf("Operator: %s\n", yytext); return divide;}
+"%" {printf("Operator: %s\n", yytext); return mod;}
+"==" {printf("Operator: %s\n", yytext); return equal;}
+"<=" {printf("Operator: %s\n", yytext); return less_or_equal;}
+">=" {printf("Operator: %s\n", yytext); return greater_or_equal;}
+"!=" {printf("Operator: %s\n", yytext); return not_equal;}
+"<" {printf("Operator: %s\n", yytext); return less;}
+">" {printf("Operator: %s\n", yytext); return greater;}
+"=" {printf("Operator: %s\n", yytext); return assign;}
+
+"," {printf("Separator: %s\n", yytext); return comma;}
+";" {printf("Separator: %s\n", yytext); return semicolon;}
+"(" {printf("Separator: %s\n", yytext); return left_round_bracket;}
+")" {printf("Separator: %s\n", yytext); return right_round_bracket;}
+"{" {printf("Separator: %s\n", yytext); return left_curly_bracket;}
+"}" {printf("Separator: %s\n", yytext); return right_curly_bracket;}
+"$" {printf("Separator: %s\n", yytext); return separator;}
+
+%%
+
+
+

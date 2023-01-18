@@ -1,0 +1,40 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+%}
+
+%token integer
+%token real
+%token string
+%token char
+%token while
+%token check
+%token else
+%token read
+%token print
+
+%token plus
+%token minus
+%token multiply
+%token divide
+%token mod
+%token eq
+%token less_or_equal
+%token greater_or_equal
+%token not_equal
+%token less
+%token greater
+%token assign
+
+%token comma
+%token semicolon
+%token left_round_bracket
+%token right_round_bracket
+%token left_curly_bracket
+%token right_curly_bracket
+%token separator
+
+%token ID
+%token NR_CONSTANT
+%token CHAR_CONSTANT
+%token STRING_CONSTANT
